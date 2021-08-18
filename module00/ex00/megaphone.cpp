@@ -15,7 +15,7 @@ char	small_letter_to_big(int c)
 int	main(int argc, char **argv)
 {
 	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	else
 	{
 		for (int i = 1; i < argc; i++)
@@ -31,5 +31,6 @@ int	main(int argc, char **argv)
 				std::cout << " ";
 		}
 	}
+	std::cout << "\n";
 	return 0;
 }
