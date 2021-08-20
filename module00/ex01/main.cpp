@@ -9,7 +9,6 @@ int	main()
 	input = true;
 	while (input)
 	{
-		std::cout << "> ";
 		std::getline(std::cin, str);
 		if (str == "ADD")
 			phone_book.add_new_contact();
