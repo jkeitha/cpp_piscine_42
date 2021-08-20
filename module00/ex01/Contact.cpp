@@ -49,3 +49,13 @@ std::string	Contact::get_darkest_secret()
 {
 	return m_darkest_secret;
 }
+
+void		Contact::set_is_empty(int flag)
+{
+	m_is_empty = flag;
+}
+
+int			Contact::get_is_empty()
+{
+	return m_is_empty;
+}

@@ -1,19 +1,10 @@
 #include "PhoneBook.hpp"
 
-void	add_new_contact()
-{
-	std::cout << "ADD NEW CONTACT\n";
-}
-
-void	search_contact()
-{
-	std::cout << "SEARCH CONTACT\n";
-}
-
 int	main()
 {
 	bool		input;
 	std::string	str;
+	PhoneBook	phone_book;
 
 	input = true;
 	while (input)
@@ -21,9 +12,9 @@ int	main()
 		std::cout << "> ";
 		std::getline(std::cin, str);
 		if (str == "ADD")
-			add_new_contact();
+			phone_book.add_new_contact();
 		if (str == "SEARCH")
-			search_contact();
+			phone_book.search_contacts();
 		if (str == "EXIT")
 		{
 			std::cout << "EXIT\n";

@@ -13,6 +13,8 @@ class	Contact
 	std::string	m_nickname;
 	std::string	m_phone_number;
 	std::string	m_darkest_secret;
+	int			m_is_empty;
+
 	public:
 	void		set_first_name(std::string value);
 	void		set_last_name(std::string value);
@@ -24,6 +26,13 @@ class	Contact
 	std::string	get_nickname();
 	std::string	get_phone_number();
 	std::string	get_darkest_secret();
+	void		set_is_empty(int flag);
+	int			get_is_empty();
+
+	Contact()
+	{
+		m_is_empty = 0;
+	}
 };
 
 #endif

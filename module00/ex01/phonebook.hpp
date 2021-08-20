@@ -5,7 +5,18 @@
 
 class	PhoneBook
 {
-	Contact	array[8];
+	private:
+	Contact	contacts_array[8];
+	int		index;
+
+	public:
+	void	add_new_contact();
+	void	search_contacts();
+
+	PhoneBook()
+	{
+		index = 0;
+	}
 };
 
 #endif
