@@ -81,6 +81,7 @@ void	PhoneBook::search_contacts()
 		}
 		contact_index++;
 	}
+	std::cout << "contact index: ";
 	std::cin >> contact_index;
 	std::cin.clear();
 	contact_index -= 1;
@@ -92,4 +93,6 @@ void	PhoneBook::search_contacts()
 		std::cout << "phone number:" << "\t" << contacts_array[contact_index].get_phone_number() << "\n";
 		std::cout << "darkest secret:" << "\t" << contacts_array[contact_index].get_darkest_secret() << "\n";
 	}
+	else
+		std::cout << "wrong contact index\n";
 }

@@ -7,6 +7,7 @@ int	main()
 	PhoneBook	phone_book;
 
 	input = true;
+	std::cout << "You can write ADD, SEARCH or EXIT\n";
 	while (input)
 	{
 		std::getline(std::cin, str);
