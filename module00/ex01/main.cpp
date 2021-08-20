@@ -19,7 +19,7 @@ int	main()
 	while (input)
 	{
 		std::cout << "> ";
-		std::cin >> str;
+		std::getline(std::cin, str);
 		if (str == "ADD")
 			add_new_contact();
 		if (str == "SEARCH")
