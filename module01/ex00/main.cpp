@@ -14,8 +14,10 @@ int	main(int argc, char **argv)
 
 	std::cout << "dynamic:\n";
 	dynamic_zombie = newZombie(argv[1]);
+	/* C++ 11
 	if (dynamic_zombie == nullptr)
 		return 1;
+	*/
 	dynamic_zombie->announce();
 
 	std::cout << "\nstatic:\n";
