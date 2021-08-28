@@ -10,10 +10,10 @@ int	main()
 
 	std::cout << "alloc memory:\n";
 	dynamic_zombie = zombieHorde(N, name);
+	if (!dynamic_zombie)
+		return 1;
 	for(int i = 0; i < N; i++)
-	{
 		dynamic_zombie[i].announce();
-	}
 	std::cout << "\nfree memory:\n";
 	delete[] dynamic_zombie;
 	return 0;

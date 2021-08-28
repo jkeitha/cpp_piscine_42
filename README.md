@@ -7,7 +7,7 @@
 - методы - функции для работы с переменными класса
 - объект - экземпляр класса
 
-``` javascript
+``` cpp
 # include <iostream>
 
 class	MyClass

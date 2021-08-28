@@ -3,6 +3,7 @@
 
 # include <string>
 # include <iostream>
+# include <new>
 
 class	Zombie
 {

@@ -3,25 +3,23 @@
 Zombie	*newZombie(std::string name);
 void	randomChump(std::string name);
 
-int	main(int argc, char **argv)
+int	main()
 {
-	if (argc != 2)
-	{
-		std::cout << "wrong input\n";
-		return 1;
-	}
-	Zombie	*dynamic_zombie;
+	Zombie				*dynamic_zombie;
+	const std::string	name = "Stiv";
 
 	std::cout << "dynamic:\n";
-	dynamic_zombie = newZombie(argv[1]);
+	dynamic_zombie = newZombie(name);
 	/* C++ 11
 	if (dynamic_zombie == nullptr)
 		return 1;
 	*/
+	if (!dynamic_zombie)
+		return 1;
 	dynamic_zombie->announce();
 
 	std::cout << "\nstatic:\n";
-	randomChump(argv[1]);
+	randomChump(name);
 
 	std::cout << std::endl;
 	delete dynamic_zombie;

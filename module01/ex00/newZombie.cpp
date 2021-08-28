@@ -12,7 +12,15 @@ Zombie	*newZombie(std::string name)
 		return nullptr;
 	}
 	*/
-	new_zombie = new Zombie;
+	try
+	{
+		new_zombie = new Zombie;
+	}
+	catch (const std::bad_alloc &exception)
+	{
+		std::cout << "allocation failed: " << exception.what() << std::endl;
+		return 0;
+	}
 	new_zombie->set_name(name);
 	new_zombie->set_message("dynamic");
 	return new_zombie;
