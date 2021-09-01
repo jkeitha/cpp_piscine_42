@@ -53,13 +53,30 @@ void	close_file_descriptors(s_file_descriptors *file_descriptors)
 	file_descriptors->to_file.close();
 }
 
+std::string	change_output(std::string output, s_args &args)
+{
+	std::string::size_type	pos_substr;
+	const size_t			s1_length = args.s1.length();
+
+	while (1)
+	{
+		pos_substr = output.find(args.s1);
+		if (pos_substr == std::string::npos)
+			break ;
+
+		output.erase(pos_substr, s1_length);
+		output.insert(pos_substr, args.s2);
+	}
+	return output;
+}
+
 void	rewrite(s_args &args, s_file_descriptors &file_descriptors)
 {
-	(void)args;
 	std::string	output;
 
 	while (getline(file_descriptors.from_file, output))
 	{
+		output = change_output(output, args);
 		file_descriptors.to_file << output << "\n";
 	}
 }
