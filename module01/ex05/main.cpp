@@ -10,5 +10,6 @@ int	main()
 	karen_test.complain("ERROR");
 	karen_test.complain("OOPS");
 	karen_test.complain("WRONG_INPUT");
+	karen_test.complain("");
 	return 0;
 }

@@ -31,6 +31,11 @@ void	Karen::error( void )
 	"to the manager now.\n";
 }
 
+void	Karen::level_not_found( void )
+{
+	std::cout << "level not found\n";
+}
+
 void	Karen::complain( std::string level )
 {
 	/*
@@ -38,6 +43,7 @@ void	Karen::complain( std::string level )
 	debug_ponter = &Karen::debug;
 	*/
 
+	/*
 	void	(Karen::*debug_ponter) () = &Karen::debug;
 	void	(Karen::*info_ponter) () = &Karen::info;
 	void	(Karen::*warning_ponter) () = &Karen::warning;
@@ -51,4 +57,16 @@ void	Karen::complain( std::string level )
 		(this->*warning_ponter) ();
 	if (level == "ERROR")
 		(this->*error_ponter) ();
+	*/
+
+	void		(Karen::*pointers_to_func_members[5]) ()
+	= {&Karen::debug, &Karen::info, &Karen::warning, &Karen::error, &Karen::level_not_found};
+	std::string	level_type[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	int			i = 0;
+
+	while (i < 4 && level_type[i] != level)
+	{
+		i++;
+	}
+	(this->*pointers_to_func_members[i]) ();
 }

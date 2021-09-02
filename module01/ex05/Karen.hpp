@@ -12,6 +12,7 @@ class	Karen
 	void	info( void );
 	void	warning( void );
 	void	error( void );
+	void	level_not_found( void );
 
 	public:
 
