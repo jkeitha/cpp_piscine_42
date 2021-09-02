@@ -29,29 +29,24 @@ void	Karen::warning( void )
 void	Karen::error( void )
 {
 	std::cout << "[ERROR]\n"
-	"ERROR:\t\t"
 	"This is unacceptable, I want to speak "
 	"to the manager now.\n";
 }
 
 void	Karen::complain( std::string level )
 {
-	/*
-	void	(Karen::*debug_ponter) ();
-	debug_ponter = &Karen::debug;
-	*/
+	void		(Karen::*pointers_to_func_members[4]) ()
+	= {&Karen::debug, &Karen::info, &Karen::warning, &Karen::error};
+	std::string	level_type[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	int			i = 0;
 
-	void	(Karen::*debug_ponter) () = &Karen::debug;
-	void	(Karen::*info_ponter) () = &Karen::info;
-	void	(Karen::*warning_ponter) () = &Karen::warning;
-	void	(Karen::*error_ponter) () = &Karen::error;
-
-	if (level == "DEBUG")
-		(this->*debug_ponter) ();
-	if (level == "INFO")
-		(this->*info_ponter) ();
-	if (level == "WARNING")
-		(this->*warning_ponter) ();
-	if (level == "ERROR")
-		(this->*error_ponter) ();
+	while (i < 4 && level_type[i] != level)
+	{
+		i++;
+	}
+	while (i < 4)
+	{
+		(this->*pointers_to_func_members[i]) ();
+		i++;
+	}
 }
