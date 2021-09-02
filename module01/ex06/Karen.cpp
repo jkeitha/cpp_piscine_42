@@ -39,14 +39,19 @@ void	Karen::complain( std::string level )
 	= {&Karen::debug, &Karen::info, &Karen::warning, &Karen::error};
 	std::string	level_type[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	int			i = 0;
+	std::string	level_not_found = "[ Probably complaining about insignificant problems ]\n";
+	std::string	separator = "";
 
 	while (i < 4 && level_type[i] != level)
 	{
 		i++;
 	}
-	while (i < 4)
+	while (i < 4 && std::cout << separator)
 	{
 		(this->*pointers_to_func_members[i]) ();
+		separator = "\n";
 		i++;
+		level_not_found = "";
 	}
+	std::cout << level_not_found;
 }
