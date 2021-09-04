@@ -13,6 +13,7 @@
 class	MyClass
 {
 	public:
+
 	int		m_num;
 	void	print_number()
 	{
@@ -36,3 +37,42 @@ int	main()
 - инкапсуляция - свойство системы, позволяющее объединить свойства и методы одного класса, и скрыть детали реализации объекта, то есть ограничить доступ
 - геттеры - функции, возвращающие значения закрытых свойств
 - сеттеры - функции, позволяющие присваивать значения закрытым свойствам
+
+## перегрузки операторов ##
+
+``` cpp
+# include <iostream>
+
+class	Sum
+{
+	private:
+
+	int		m_sum;
+
+	public:
+
+	Sum(int sum) { m_sum = sum; }
+	int	getSum() { return m_sum; }
+};
+
+Sum	operator+(const Sum &sum1, const Sum &sum2)
+{
+	return Sum(sum1.getSum() + sum2.getSum());
+}
+
+int	main()
+{
+	Sum	sum1(2);
+	Sum	sum2(3);
+	Sum	ans = sum1 + sum2;
+
+	std::cout << ans.getSum() << std::endl;
+	return 0;
+}
+```
+
+## Inheritance ##
+Наследование
+
+## Polymorphism ##
+Полиморфизм
