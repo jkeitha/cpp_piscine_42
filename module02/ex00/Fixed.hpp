@@ -1,12 +1,14 @@
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
+#include <iostream>
+
 class	Fixed
 {
 	private:
 
-	int			m_point;
-	const int	m_bit = 8;
+	int					m_point;
+	static const int	m_bit = 8;
 
 	public:
 

@@ -1,6 +1,6 @@
-NAME		=
+NAME		= ex00
 
-SRCS		=
+SRCS		= main.cpp Fixed.cpp
 
 OBJS		= ${SRCS:.cpp=.o}
 
@@ -8,7 +8,7 @@ CMPL		= clang++
 
 FLGS		= -Wall -Wextra -Werror -std=c++98
 
-RM			= rm
+RM			= rm -f
 
 .cpp.o:
 			@${CMPL} ${FLGS} -c $< -o ${<:.cpp=.o}

@@ -8,7 +8,7 @@ CMPL		= clang++
 
 FLGS		= -Wall -Wextra -Werror -std=c++98
 
-RM			= rm
+RM			= rm -f
 
 .cpp.o:
 			@${CMPL} ${FLGS} -c $< -o ${<:.cpp=.o}
