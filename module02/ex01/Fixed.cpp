@@ -6,7 +6,7 @@
 
 int		Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called\n";
+	// std::cout << "getRawBits member function called\n";
 	return m_point;
 }
 
@@ -19,11 +19,13 @@ void	Fixed::setRawBits(int const raw) { m_point = raw; }
 Fixed::Fixed(const int i)
 {
 	std::cout << "Int constructor called\n";
+	m_point = i * (1 << m_bit);
 }
 
 Fixed::Fixed(const float i)
 {
 	std::cout << "Float constructor called\n";
+	m_point = roundf(i * (1 << m_bit));
 }
 
 Fixed::Fixed(const Fixed &v)
@@ -54,11 +56,12 @@ Fixed	&Fixed::operator=(const Fixed &v)
 }
 
 /*
-**	insert operator overload
+**	insert operator overload by Microsoft
 */
 
 std::ostream	&operator<<(std::ostream &os, const Fixed &v)
 {
+	os << v.toFloat();
 	return os;
 }
 
@@ -66,6 +69,6 @@ std::ostream	&operator<<(std::ostream &os, const Fixed &v)
 **	convert methods
 */
 
-float	Fixed::toFloat( void ) const {}
+float	Fixed::toFloat( void ) const { return (float)m_point / (float)(1 << m_bit); }
 
-int		Fixed::toInt( void ) const {}
+int		Fixed::toInt( void ) const { return m_point / (1 << m_bit); }
