@@ -19,7 +19,8 @@ void	Fixed::setRawBits(int const raw) { m_point = raw; }
 Fixed::Fixed(const Fixed &v)
 {
 	std::cout << "Copy constructor called\n";
-	*this = v;
+	m_point = v.getRawBits();
+	// *this = v;
 }
 
 Fixed::Fixed()
@@ -37,4 +38,8 @@ Fixed::~Fixed() { std::cout << "Destructor called\n"; }
 Fixed	&Fixed::operator=(const Fixed &v)
 {
 	std::cout << "Assignation operator called\n";
+	if (this == &v)
+		return (*this);
+	m_point = v.getRawBits();
+	return (*this);
 }
