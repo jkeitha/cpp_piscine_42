@@ -31,7 +31,8 @@ Fixed::Fixed(const float i)
 Fixed::Fixed(const Fixed &v)
 {
 	std::cout << "Copy constructor called\n";
-	m_point = v.getRawBits();
+	// m_point = v.getRawBits();
+	*this = v;
 }
 
 Fixed::Fixed()
