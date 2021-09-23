@@ -2,7 +2,7 @@
 
 ClapTrap::ClapTrap(std::string const &Name)
 {
-	std::cout << "constructor\n";
+	std::cout << "constructor with arg\n";
 	m_Name = Name;
 	m_Hitpoints = 10;
 	m_Energy_points = 10;
@@ -12,19 +12,19 @@ ClapTrap::ClapTrap(std::string const &Name)
 ClapTrap::ClapTrap()
 {
 	std::cout << "default constructor\n";
-	m_Name = "nothing";
+	m_Name = "Stiv";
 	m_Hitpoints = 10;
 	m_Energy_points = 10;
 	m_Attack_damage = 0;
 }
 
-ClapTrap::ClapTrap(ClapTrap &v)
+ClapTrap::ClapTrap(const ClapTrap &v)
 {
 	std::cout << "copy constructor\n";
 	*this = v;
 }
 
-ClapTrap	&ClapTrap::operator=(ClapTrap &v)
+ClapTrap	&ClapTrap::operator=(const ClapTrap &v)
 {
 	std::cout << "assignment operator\n";
 	if (this == &v)
@@ -38,25 +38,34 @@ ClapTrap	&ClapTrap::operator=(ClapTrap &v)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "destructor\n";
+	std::cout << "destructor " << get_Name() << std::endl;
 }
 
-std::string		ClapTrap::get_Name() { return m_Name; }
-unsigned int	ClapTrap::get_Hitpoints() { return m_Hitpoints; }
-unsigned int	ClapTrap::get_Energy_points() { return m_Energy_points; }
-unsigned int	ClapTrap::get_Attack_damage() { return m_Attack_damage; }
+std::string		ClapTrap::get_Name() const { return m_Name; }
+unsigned int	ClapTrap::get_Hitpoints() const { return m_Hitpoints; }
+unsigned int	ClapTrap::get_Energy_points() const { return m_Energy_points; }
+unsigned int	ClapTrap::get_Attack_damage() const { return m_Attack_damage; }
 
 void	ClapTrap::attack(std::string const & target)
 {
-	std::cout << "\n";
+	std::cout << "ClapTrap " << get_Name()
+	<< " attack " << target << ", causing "
+	<< get_Attack_damage() << " points of damage!\n";
+	m_Energy_points -= 1;
+	m_Attack_damage += 5;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "\n";
+	std::cout << "ClapTrap " << get_Name()
+	<< " take " << amount << " points of damage!\n";
+	m_Hitpoints -= amount;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	std::cout << "\n";
+	std::cout << "ClapTrap " << get_Name()
+	<< " take " << amount << " points of repair\n";
+	m_Hitpoints += amount;
+	m_Energy_points += 1;
 }

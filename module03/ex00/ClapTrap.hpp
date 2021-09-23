@@ -15,10 +15,10 @@ class	ClapTrap
 
 	public:
 
-	std::string		get_Name();
-	unsigned int	get_Hitpoints();
-	unsigned int	get_Energy_points();
-	unsigned int	get_Attack_damage();
+	std::string		get_Name() const;
+	unsigned int	get_Hitpoints() const;
+	unsigned int	get_Energy_points() const;
+	unsigned int	get_Attack_damage() const;
 
 	void	attack(std::string const & target);
 	void	takeDamage(unsigned int amount);
@@ -27,9 +27,9 @@ class	ClapTrap
 	ClapTrap(std::string const &Name);
 
 	ClapTrap();
-	ClapTrap(ClapTrap &v);
-	ClapTrap	&operator=(ClapTrap &v);
+	ClapTrap(const ClapTrap &v);
+	ClapTrap	&operator=(const ClapTrap &v);
 	~ClapTrap();
-}
+};
 
 #endif
