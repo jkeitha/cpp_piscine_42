@@ -1,4 +1,4 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int	main()
 {
@@ -10,9 +10,9 @@ int	main()
 	std::cout << Stiv.get_Attack_damage() << std::endl;
 	Stiv.attack("Woz");
 
-	ScavTrap	Mike("Jose");
+	FragTrap	Mike("Jose");
 
-	Mike.guardGate();
+	Mike.highFivesGuys();
 	std::cout << Mike.get_Name() << std::endl;
 	std::cout << Mike.get_Hitpoints() << std::endl;
 	std::cout << Mike.get_Energy_points() << std::endl;
