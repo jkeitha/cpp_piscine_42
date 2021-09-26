@@ -2,20 +2,22 @@
 
 void	DiamondTrap::whoAmI() const
 {
-	std::cout << "DiamondTrap Name: " << m_Name << std::endl;
-	// std::cout << "ClapTrap Name: " << ClapTrap::m_Name << std::endl;
-	// std::cout << "ClapTrap Name: " << ClapTrap::get_Name() << std::endl;
-	std::cout << "ClapTrap Name: " << get_Name() << std::endl;
+	std::cout << "DiamondTrap Name: " << get_Name() << std::endl;
+	std::cout << "ClapTrap Name: " << ClapTrap::get_Name() << std::endl;
 }
+
+std::string	DiamondTrap::get_Name() const { return m_Name; }
 
 DiamondTrap::DiamondTrap(std::string Name) : ClapTrap(Name + "_clap_name")
 {
 	std::cout << "DiamondTrap constructor with arg\n";
+	m_Name = Name + "_diamond_name";
 }
 
 DiamondTrap::DiamondTrap() : ClapTrap("default_clap_name")
 {
 	std::cout << "default DiamondTrap constructor\n";
+	m_Name = "default_diamond_name";
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &v)
