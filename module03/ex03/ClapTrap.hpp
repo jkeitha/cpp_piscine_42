@@ -31,7 +31,7 @@ class	ClapTrap
 	ClapTrap();
 	ClapTrap(const ClapTrap &v);
 	ClapTrap	&operator=(const ClapTrap &v);
-	~ClapTrap();
+	virtual ~ClapTrap();
 };
 
 #endif

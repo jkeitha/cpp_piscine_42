@@ -2,5 +2,6 @@
 
 int	main()
 {
+	DiamondTrap	DT("dt");
 	return 0;
 }
