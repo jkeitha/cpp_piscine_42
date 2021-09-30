@@ -23,4 +23,40 @@
 
 Универсальный полиморфизм позволяет работать с неограниченным количеством типов, а вот специальный - только с конечным набором конкретных типов
 
-Полиморфизм подтипов - возможность через данный интерфейс использовать его подтипы, но при этом не знать этого. Например, если класс - это тип, то его потомки будут подтипами
+Полиморфизм подтипов - возможность через данный интерфейс использовать его подтипы, но при этом не знать этого. Например, если класс - это тип, то его потомки будут подтипами:
+
+``` cpp
+#include <iostream>
+
+class Animal {
+	public:
+	virtual void speak() {
+		std::cout << "???" << std::endl;
+	}
+};
+
+class Cat : public Animal {
+	public:
+	virtual void speak() {
+		std::cout << "meow" << std::endl;
+	}
+};
+
+class Dog : public Animal {
+	public:
+	virtual void speak() {
+		std::cout << "woof" << std::endl;
+	}
+};
+
+void report(Animal &animal) { animal.speak(); }
+
+int main() {
+	Cat cat;
+	Dog dog;
+
+	report(cat);
+	report(dog);
+	return 0;
+}
+```
