@@ -16,5 +16,10 @@ Brain::Brain(const Brain &brain) {
 Brain &Brain::operator=(const Brain &brain) {
 	if (this == &brain)
 		return *this;
+	int i = 0;
+	while (i < 100) {
+		ideas[i] = brain.ideas[i];
+		i++;
+	}
 	return *this;
 }
