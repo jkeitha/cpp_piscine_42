@@ -3,6 +3,7 @@
 Dog::Dog() {
 	std::cout << "default constructor Dog\n";
 	type = "Dog";
+	brain = 0;
 	try {
 		brain = new Brain;
 	} catch (const std::bad_alloc &exception) {
@@ -22,16 +23,19 @@ Dog::~Dog() {
 
 Dog::Dog(const Dog &dog) {
 	std::cout << "copy constructor Dog\n";
+	brain = 0;
 	*this = dog;
 }
 
 Dog &Dog::operator=(const Dog &dog) {
+	std::cout << "operator = Dog\n";
 	if (this == &dog)
 		return *this;
 	type = dog.type;
 	if (brain) {
 		delete brain;
 		std::cout << "old Brain deleted\n";
+		brain = 0;
 	}
 	try {
 		brain = new Brain;
@@ -39,7 +43,8 @@ Dog &Dog::operator=(const Dog &dog) {
 		std::cout << "allocation failed: " << exception.what() << std::endl;
 		Dog::~Dog();
 	}
-	brain = dog.brain;
+	std::cout << "Brain allocated\n";
+	*brain = *dog.brain;
 	return *this;
 }
 

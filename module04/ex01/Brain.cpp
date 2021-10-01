@@ -14,6 +14,7 @@ Brain::Brain(const Brain &brain) {
 }
 
 Brain &Brain::operator=(const Brain &brain) {
+	std::cout << "operator = Brain\n";
 	if (this == &brain)
 		return *this;
 	int i = 0;
