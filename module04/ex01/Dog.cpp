@@ -5,7 +5,20 @@ Dog::Dog() {
 	type = "Dog";
 	brain = 0;
 	try {
-		brain = new Brain;
+		brain = new Brain();
+	} catch (const std::bad_alloc &exception) {
+		std::cout << "allocation failed: " << exception.what() << std::endl;
+		Dog::~Dog();
+	}
+	std::cout << "Brain allocated\n";
+}
+
+Dog::Dog(std::string idea) {
+	std::cout << "argument constructor Dog\n";
+	type = "Dog";
+	brain = 0;
+	try {
+		brain = new Brain(idea);
 	} catch (const std::bad_alloc &exception) {
 		std::cout << "allocation failed: " << exception.what() << std::endl;
 		Dog::~Dog();
@@ -38,7 +51,7 @@ Dog &Dog::operator=(const Dog &dog) {
 		brain = 0;
 	}
 	try {
-		brain = new Brain;
+		brain = new Brain();
 	} catch (const std::bad_alloc &exception) {
 		std::cout << "allocation failed: " << exception.what() << std::endl;
 		Dog::~Dog();
@@ -50,4 +63,8 @@ Dog &Dog::operator=(const Dog &dog) {
 
 void Dog::makeSound() const {
 	std::cout << "woof\n";
+}
+
+void Dog::getIdeas() const {
+	brain->getIdeas();
 }

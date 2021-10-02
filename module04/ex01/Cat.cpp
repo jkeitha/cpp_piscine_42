@@ -5,7 +5,20 @@ Cat::Cat() {
 	type = "Cat";
 	brain = 0;
 	try {
-		brain = new Brain;
+		brain = new Brain();
+	} catch (const std::bad_alloc &exception) {
+		std::cout << "allocation failed: " << exception.what() << std::endl;
+		Cat::~Cat();
+	}
+	std::cout << "Brain allocated\n";
+}
+
+Cat::Cat(std::string idea) {
+	std::cout << "argument constructor Cat\n";
+	type = "Cat";
+	brain = 0;
+	try {
+		brain = new Brain(idea);
 	} catch (const std::bad_alloc &exception) {
 		std::cout << "allocation failed: " << exception.what() << std::endl;
 		Cat::~Cat();
@@ -38,7 +51,7 @@ Cat &Cat::operator=(const Cat &cat) {
 		brain = 0;
 	}
 	try {
-		brain = new Brain;
+		brain = new Brain();
 	} catch (const std::bad_alloc &exception) {
 		std::cout << "allocation failed: " << exception.what() << std::endl;
 		Cat::~Cat();
@@ -50,4 +63,8 @@ Cat &Cat::operator=(const Cat &cat) {
 
 void Cat::makeSound() const {
 	std::cout << "meow\n";
+}
+
+void Cat::getIdeas() const {
+	brain->getIdeas();
 }

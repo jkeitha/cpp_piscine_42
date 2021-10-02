@@ -10,10 +10,14 @@ void subject_check() {
 }
 
 void check_assing_operator() {
-	const Cat *cat1 = new Cat();
-	Cat *cat2 = new Cat();
+	const Cat *cat1 = new Cat("1");
+	Cat *cat2 = new Cat("2");
 
+	cat1->getIdeas(); std::cout << std::endl;
+	cat2->getIdeas(); std::cout << std::endl;
 	*cat2 = *cat1;
+	cat1->getIdeas(); std::cout << std::endl;
+	cat2->getIdeas(); std::cout << std::endl;
 
 	delete cat1;
 	delete cat2;

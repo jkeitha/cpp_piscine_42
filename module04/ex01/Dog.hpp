@@ -9,6 +9,8 @@ class Dog : public Animal {
 
 	public:
 	virtual void makeSound() const;
+	void getIdeas() const;
+	Dog(std::string idea);
 	Dog();
 	virtual ~Dog();
 	Dog(const Dog &dog);

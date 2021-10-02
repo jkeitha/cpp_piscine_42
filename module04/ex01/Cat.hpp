@@ -9,6 +9,8 @@ class Cat : public Animal {
 
 	public:
 	virtual void makeSound() const;
+	void getIdeas() const;
+	Cat(std::string idea);
 	Cat();
 	virtual ~Cat();
 	Cat(const Cat &cat);

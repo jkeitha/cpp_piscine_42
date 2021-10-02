@@ -9,6 +9,8 @@ class Brain {
 	std::string ideas[100];
 
 	public:
+	void getIdeas() const;
+	Brain(std::string idea);
 	Brain();
 	~Brain();
 	Brain(const Brain &brain);
