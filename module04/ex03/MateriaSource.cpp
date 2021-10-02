@@ -33,7 +33,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &materiaSource) {
 
 void MateriaSource::learnMateria(AMateria *amateria) {
 	for (int i = 0; i < 4; i++)
-		if (!m_inventory) {
+		if (!m_inventory[i]) {
 			m_inventory[i] = amateria;
 			return ;
 		}

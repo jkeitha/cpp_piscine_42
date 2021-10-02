@@ -44,7 +44,7 @@ std::string const &Character::getName() const { return m_Name; }
 
 void Character::equip(AMateria *m) {
 	for (int i = 0; i < 4; i++)
-		if (!m_inventory) {
+		if (!m_inventory[i]) {
 			m_inventory[i] = m;
 			return ;
 		}

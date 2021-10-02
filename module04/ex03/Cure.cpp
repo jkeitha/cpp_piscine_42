@@ -5,7 +5,7 @@ Cure::Cure() {
 	m_type = "cure";
 }
 
-Cure::Cure() { std::cout << "destructor Cure\n"; }
+Cure::~Cure() { std::cout << "destructor Cure\n"; }
 
 Cure::Cure(const Cure &cure) {
 	std::cout << "copy constructor Cure\n";
