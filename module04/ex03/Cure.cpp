@@ -19,3 +19,5 @@ Cure &Cure::operator=(const Cure &cure) {
 }
 
 AMateria *Cure::clone() const {}
+
+void Cure::use(ICharacter &target) {}

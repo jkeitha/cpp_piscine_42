@@ -18,6 +18,6 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &materiaSource) {
 	return *this;
 }
 
-void IMateriaSource::learnMateria(AMateria *) {}
+void MateriaSource::learnMateria(AMateria *) {}
 
-AMateria *IMateriaSource::createMateria(std::string const &type) {}
+AMateria *MateriaSource::createMateria(std::string const &type) {}
