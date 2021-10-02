@@ -2,6 +2,7 @@
 
 Ice::Ice() {
 	std::cout << "default constructor Ice\n";
+	m_type = "ice";
 }
 
 Ice::~Ice() { std::cout << "destructor Ice\n"; }
@@ -18,6 +19,11 @@ Ice &Ice::operator=(const Ice &ice) {
 	return *this;
 }
 
-AMateria *Ice::clone() const {}
+AMateria *Ice::clone() const {
+	AMateria *amateria = new Ice(*this);
+	return amateria;
+}
 
-void Ice::use(ICharacter &target) {}
+void Ice::use(ICharacter &target) {
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}

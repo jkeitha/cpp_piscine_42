@@ -4,9 +4,12 @@
 # include "IMateriaSource.hpp"
 
 class MateriaSource : public IMateriaSource {
+	private:
+	AMateria *m_inventory[4];
+
 	public:
 	MateriaSource();
-	~MateriaSource();
+	virtual ~MateriaSource();
 	MateriaSource(const MateriaSource &materiaSource);
 	MateriaSource &operator=(const MateriaSource &materiaSource);
 

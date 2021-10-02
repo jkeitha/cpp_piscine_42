@@ -4,10 +4,14 @@
 # include "ICharacter.hpp"
 
 class Character : public ICharacter {
+	private:
+	std::string m_Name;
+	AMateria *m_inventory[4];
+
 	public:
 	Character(std::string Name);
 	Character();
-	~Character();
+	virtual ~Character();
 	Character(const Character &character);
 	Character &operator=(const Character &character);
 

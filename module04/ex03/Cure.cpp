@@ -2,6 +2,7 @@
 
 Cure::Cure() {
 	std::cout << "default constructor Cure\n";
+	m_type = "cure";
 }
 
 Cure::Cure() { std::cout << "destructor Cure\n"; }
@@ -18,6 +19,11 @@ Cure &Cure::operator=(const Cure &cure) {
 	return *this;
 }
 
-AMateria *Cure::clone() const {}
+AMateria *Cure::clone() const {
+	AMateria *amateria = new Cure(*this);
+	return amateria;
+}
 
-void Cure::use(ICharacter &target) {}
+void Cure::use(ICharacter &target) {
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+}
