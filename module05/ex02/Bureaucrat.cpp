@@ -44,3 +44,24 @@ void Bureaucrat::signForm(const Form &form) {
 	else
 		std::cout << m_name << " cannot sign " << form.getName() << std::endl;
 }
+
+Bureaucrat::Bureaucrat(const Bureaucrat &bureaucrat) :
+m_name(bureaucrat.getName()), m_grade(bureaucrat.getGrade()) {
+	// copy constructor
+	*this = bureaucrat;
+}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &bureaucrat) {
+	if (this == &bureaucrat)
+		return *this;
+	m_grade = bureaucrat.getGrade();
+	return *this;
+}
+
+void Bureaucrat::executeForm(const Form &form) {
+	try {
+		form.execute(*this);
+	} catch (std::exception &e) {
+		std::cout << "exception: " << e.what() << std::endl;
+	}
+}

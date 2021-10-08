@@ -14,6 +14,7 @@ class Form {
 	bool m_sign;
 	const int m_gradeSign;
 	const int m_gradeExec;
+	const std::string m_target;
 
 	public:
 
@@ -21,6 +22,9 @@ class Form {
 	bool getSign() const;
 	int getGradeSign() const;
 	int getGradeExec() const;
+	const std::string getTarget() const;
+
+	void beSigned(const Bureaucrat &bureaucrat);
 
 	class GradeTooHighException : public std::exception {
 		public:
@@ -34,10 +38,21 @@ class Form {
 		const char *what() const throw();
 	};
 
-	Form();
-	Form(const std::string name, bool sign, const int gradeSign, const int gradeExec);
+	class UnSign : public std::exception {
+		public:
 
-	void beSigned(const Bureaucrat &bureaucrat);
+		const char *what() const throw();
+	};
+
+	Form();
+	virtual ~Form();
+	Form(const std::string name, bool sign, const int gradeSign,
+	const int gradeExec, const std::string target);
+	Form(const Form &form);
+	Form &operator=(const Form &form);
+
+	void execute(const Bureaucrat &executor) const;
+	virtual void action() const = 0;
 };
 
 std::ostream &operator<<(std::ostream &os, const Form &form);
