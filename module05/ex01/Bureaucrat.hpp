@@ -36,6 +36,8 @@ class Bureaucrat {
 	Bureaucrat(int grade);
 	Bureaucrat();
 	~Bureaucrat();
+	Bureaucrat(const Bureaucrat &bureaucrat);
+	Bureaucrat &operator=(const Bureaucrat &bureaucrat);
 
 	void signForm(const Form &form);
 };

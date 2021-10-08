@@ -37,3 +37,16 @@ Bureaucrat::~Bureaucrat() {}
 const char *Bureaucrat::GradeTooHighException::what() const throw() { return "too high"; }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw() { return "too low"; }
+
+Bureaucrat::Bureaucrat(const Bureaucrat &bureaucrat) :
+m_name(bureaucrat.getName()), m_grade(bureaucrat.getGrade()) {
+	// copy constructor
+	*this = bureaucrat;
+}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &bureaucrat) {
+	if (this == &bureaucrat)
+		return *this;
+	m_grade = bureaucrat.getGrade();
+	return *this;
+}

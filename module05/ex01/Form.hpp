@@ -22,6 +22,8 @@ class Form {
 	int getGradeSign() const;
 	int getGradeExec() const;
 
+	void beSigned(const Bureaucrat &bureaucrat);
+
 	class GradeTooHighException : public std::exception {
 		public:
 
@@ -35,9 +37,10 @@ class Form {
 	};
 
 	Form();
+	~Form();
 	Form(const std::string name, bool sign, const int gradeSign, const int gradeExec);
-
-	void beSigned(const Bureaucrat &bureaucrat);
+	Form(const Form &form);
+	Form &operator=(const Form &form);
 };
 
 std::ostream &operator<<(std::ostream &os, const Form &form);

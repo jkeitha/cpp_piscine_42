@@ -23,6 +23,8 @@ const char *Form::GradeTooLowException::what() const throw() { return "too low";
 
 Form::Form() : m_name("default"), m_sign(0), m_gradeSign(1), m_gradeExec(1) {}
 
+Form::~Form() {}
+
 Form::Form(const std::string name, bool sign,
 const int gradeSign, const int gradeExec) : m_name(name),
 m_sign(sign), m_gradeSign(gradeSign), m_gradeExec(gradeExec) {
@@ -30,6 +32,20 @@ m_sign(sign), m_gradeSign(gradeSign), m_gradeExec(gradeExec) {
 		throw GradeTooLowException();
 	if (gradeSign < 1 || gradeExec < 1)
 		throw GradeTooHighException();
+}
+
+Form::Form(const Form &form) :
+m_name(form.getName()), m_sign(form.getSign()),
+m_gradeSign(form.getGradeSign()), m_gradeExec(form.getGradeExec()) {
+	// copy constructor
+	*this = form;
+}
+
+Form &Form::operator=(const Form &form) {
+	if (this == &form)
+		return *this;
+	m_sign = form.getSign();
+	return *this;
 }
 
 void Form::beSigned(const Bureaucrat &bureaucrat) {

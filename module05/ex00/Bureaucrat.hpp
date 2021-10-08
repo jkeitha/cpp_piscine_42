@@ -33,6 +33,8 @@ class Bureaucrat {
 	Bureaucrat(int grade);
 	Bureaucrat();
 	~Bureaucrat();
+	Bureaucrat(const Bureaucrat &bureaucrat);
+	Bureaucrat &operator=(const Bureaucrat &bureaucrat);
 };
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);
