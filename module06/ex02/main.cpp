@@ -23,15 +23,35 @@ Base *generate(void) {
 }
 
 void identify(Base *p) {
-	(void)p;
+	if (dynamic_cast<A*>(p) != NULL)
+		std::cout << "class A\n";
+	if (dynamic_cast<B*>(p) != NULL)
+		std::cout << "class B\n";
+	if (dynamic_cast<C*>(p) != NULL)
+		std::cout << "class C\n";
 }
 
 void identify(Base &p) {
-	(void)p;
+	char type;
+	try {
+		A a = dynamic_cast<A&>(p);
+		type = 'A';
+	} catch (const std::exception &e) {}
+	try {
+		B b = dynamic_cast<B&>(p);
+		type = 'B';
+	} catch (const std::exception &e) {}
+	try {
+		C c = dynamic_cast<C&>(p);
+		type = 'C';
+	} catch (const std::exception &e) {}
+	std::cout << "class " << type << std::endl;
 }
 
 int main() {
 	Base *ptr = generate();
+	identify(ptr);
+	identify(*ptr);
 	delete ptr;
 	return 0;
 }
