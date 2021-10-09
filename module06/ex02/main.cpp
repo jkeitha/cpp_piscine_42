@@ -36,15 +36,15 @@ void identify(Base &p) {
 	try {
 		A a = dynamic_cast<A&>(p);
 		type = 'A';
-	} catch (const std::exception &e) {}
+	} catch (const std::bad_cast &bc) {}
 	try {
 		B b = dynamic_cast<B&>(p);
 		type = 'B';
-	} catch (const std::exception &e) {}
+	} catch (const std::bad_cast &bc) {}
 	try {
 		C c = dynamic_cast<C&>(p);
 		type = 'C';
-	} catch (const std::exception &e) {}
+	} catch (const std::bad_cast &bc) {}
 	std::cout << "class " << type << std::endl;
 }
 
