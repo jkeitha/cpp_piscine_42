@@ -27,5 +27,8 @@ int main() {
 	size = copy_array.size();
 	std::cout << "size: " << size << std::endl;
 
+	std::cout << std::endl;
+	Array <int> array2 = Array <int> ();
+
 	return 0;
 }
