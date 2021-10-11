@@ -36,14 +36,28 @@ void Span::addNumber(int num) {
 	}
 }
 
+void Span::addNumber(std::vector<int>::iterator begin,
+std::vector<int>::iterator end) {
+	if (end - begin > m_N)
+		throw static_cast<std::string>("HUGE STORAGE");
+	else
+		std::copy(begin, end, std::back_inserter(m_storage));
+}
+
 unsigned int Span::shortestSpan() const {
 	createException();
-	return *(m_storage.begin() + 1) - *m_storage.begin();
+	if (*(m_storage.begin() + 1) > *m_storage.begin())
+		return *(m_storage.begin() + 1) - *m_storage.begin();
+	else
+		return *m_storage.begin() - *(m_storage.begin() + 1);
 }
 
 unsigned int Span::longestSpan() const {
 	createException();
-	return *(m_storage.end() - 1) - *m_storage.begin();
+	if (*(m_storage.end() - 1) > *m_storage.begin())
+		return *(m_storage.end() - 1) - *m_storage.begin();
+	else
+		return *m_storage.begin() - *(m_storage.end() - 1);
 }
 
 void Span::createException() const {

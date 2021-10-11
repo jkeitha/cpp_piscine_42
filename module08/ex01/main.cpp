@@ -1,5 +1,7 @@
 #include <iostream>
 #include "span.hpp"
+#include <cstdlib>
+#include <ctime>
 
 void subject() {
 
@@ -54,7 +56,19 @@ void test_shortest_longest() {
 }
 
 void test_10000() {
+
 	Span span = Span(10000);
+
+	srand(static_cast<unsigned int>(time(0)));
+	std::vector<int> container;
+	for (int i = 0; i < 10000; i++)
+		container.push_back(rand() % 10000 + 1);
+
+	span.addNumber(container.begin(), container.end());
+
+	std::cout << span.shortestSpan() << std::endl;
+	std::cout << span.longestSpan() << std::endl;
+
 }
 
 int main() {
